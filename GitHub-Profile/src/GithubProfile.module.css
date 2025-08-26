@@ -1,0 +1,311 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(135deg , #0F2027, #203A43, #2c5364);
+  padding: 2rem;
+  font-family: "Segoe UI", sans-serif;
+  color: #fff;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #fff; /* pure white */
+  font-weight: 700;
+  letter-spacing: 1px;
+  position: relative;
+  animation: fadeInDown 1s ease-in-out;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4),
+               0 0 20px rgba(0, 180, 219, 0.6),
+               0 0 40px rgba(0, 131, 176, 0.6);
+}
+
+/* subtle underline gradient bar */
+.title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0083B0, #00B4DB);
+  animation: underlineGlow 2s infinite alternate;
+}
+
+
+
+.userName {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 1rem 0;
+
+  color: #fff; /* White text */
+
+  letter-spacing: 1px;
+  text-transform: capitalize;
+
+  /* Animation */
+  animation: fadeInDown 0.8s ease-in-out;
+
+  /* Subtle glow effect */
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.4), 
+               0 0 15px rgba(0, 180, 219, 0.7);
+
+  transition: all 0.3s ease;
+}
+
+
+
+
+/* glowing underline animation */
+@keyframes underlineGlow {
+  from {
+    box-shadow: 0 0 5px rgba(0, 180, 219, 0.5);
+  }
+  to {
+    box-shadow: 0 0 15px rgba(0, 180, 219, 0.9);
+  }
+}
+
+.searchBox {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.input {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  border-radius: 25px 80px 25px 80px; /* same family shape as card & buttons */
+  border: 2px solid transparent;
+  outline: none;
+  font-size: 1rem;
+  color: #333; /* text dark so it's readable on white */
+  background: #fff; /* pure white input */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  caret-color: #00B4DB; /* typing cursor in theme color */
+}
+
+.input:focus {
+  box-shadow: 0 6px 20px rgba(0, 180, 219, 0.3);
+  transform: scale(1.02);
+}
+
+/* Placeholder */
+.input::placeholder {
+  color: #888;
+  font-style: italic;
+  transition: 0.3s ease;
+}
+
+.input:focus::placeholder {
+  color: #bbb;
+}
+
+
+
+.button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px 80px 25px 80px;  /* same shape as card & profileBtn */
+  background: linear-gradient(135deg, #0083B0, #00B4DB); /* theme gradient */
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 131, 176, 0.4);
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #00B4DB, #0083B0); /* reverse gradient */
+  transform: translateY(-3px) scale(1.07);
+  box-shadow: 0 10px 25px rgba(0, 180, 219, 0.6);
+}
+
+
+.loading {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.error {
+  color: #ffdddd;
+  background: #990000;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px 80px 25px 80px;   
+  padding: 2rem;
+  text-align: center;
+  max-width: 350px;
+  width: 100%;
+  min-height: 420px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4),
+              inset 0 0 20px rgba(255, 255, 255, 0.05);
+
+  overflow: hidden;   
+  animation: fadeInUp 0.8s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 131, 176, 0.5),
+              inset 0 0 25px rgba(0, 180, 219, 0.2);
+}
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 1rem;
+  padding: 5px;
+  object-fit: cover;
+  animation: popIn 0.6s ease-in-out;
+  background: linear-gradient(135deg, #0083B0, #00B4DB);
+  
+  /* shape styling */
+  clip-path: polygon(
+    20% 0%, 80% 0%,   /* top edges */
+    100% 20%, 100% 80%, /* right edges */
+    80% 100%, 20% 100%, /* bottom edges */
+    0% 80%, 0% 20%     /* left edges */
+  );
+
+  box-shadow: 0 6px 20px rgba(0, 131, 176, 0.5);
+  transition: 0.4s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 12px 30px rgba(0, 180, 219, 0.7);
+}
+
+
+
+.bio {
+  font-size: 1rem;
+  margin: 1rem 0;
+  color: #fff; /* white text */
+  opacity: 0.95;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+
+  background: rgba(255, 255, 255, 0.05); /* soft glassy bg */
+  padding: 0.8rem 1rem;
+  border-radius: 15px;
+  backdrop-filter: blur(6px); /* glassmorphism */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+  transition: 0.3s ease;
+}
+
+.bio:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.profileBtn {
+  display: inline-block;
+  background: linear-gradient(135deg, #0083B0, #00B4DB); /* theme gradient */
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px 80px 25px 80px;   /* same shape as card */
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 131, 176, 0.4);
+}
+
+.profileBtn:hover {
+  background: linear-gradient(135deg, #00B4DB, #0083B0); /* reverse gradient */
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 180, 219, 0.6);
+}
+
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .searchBox {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}
