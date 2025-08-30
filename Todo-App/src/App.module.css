@@ -1,0 +1,111 @@
+/* App.module.css */
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* Input + Button Row */
+.inputRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 6px rgba(74, 144, 226, 0.4);
+}
+
+/* Buttons */
+.btnPrimary,
+.btnSecondary,
+.btnDanger {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Primary Button */
+.btnPrimary {
+  background: #4a90e2;
+  color: #fff;
+}
+.btnPrimary:hover {
+  background: #357abd;
+}
+
+/* Secondary Button */
+.btnSecondary {
+  background: #f1c40f;
+  color: #2c3e50;
+}
+.btnSecondary:hover {
+  background: #d4ac0d;
+}
+
+/* Danger Button */
+.btnDanger {
+  background: #e74c3c;
+  color: #fff;
+}
+.btnDanger:hover {
+  background: #c0392b;
+}
+
+/* Todo List */
+.todoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 12px 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.todoItem span {
+  font-size: 1rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 8px;
+}
