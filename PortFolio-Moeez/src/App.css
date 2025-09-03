@@ -44,31 +44,53 @@ body {
   font-size: 1.8rem;
   color: #0bbef5;
 }
+
 .logo span {
   background: linear-gradient(135deg, #38bdf8, #0ca5ec);
   background-clip: text;
-  -webkit-background-clip: text; /* for Chrome, Safari */
+  -webkit-background-clip: text;
   color: transparent;
-  -webkit-text-fill-color: transparent; /* for Safari */
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+.intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #f1f5f9; /* normal text color */
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro strong {
+  color: #38bdf8; /* light blue for your name */
+  font-weight: 600;
+}
+
+.intro .highlight {
+  color: #ffd700; /* yellow highlight */
   font-weight: 600;
 }
 
 
+
+/* ====== Nav Links ====== */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 35px; /* thoda zyada spacing */
+  gap: 35px;
+  transition: all 0.3s ease;
 }
 
 .nav-links li a {
-  position: relative;
   text-decoration: none;
   color: #f1f5f9;
   font-weight: 500;
   font-size: 1rem;
   letter-spacing: 0.5px;
-  padding: 5px 0;
   transition: color 0.3s ease;
+  position: relative;
 }
 
 .nav-links li a::after {
@@ -80,7 +102,6 @@ body {
   height: 2px;
   background: #38bdf8;
   transition: width 0.3s ease;
-  border-radius: 2px;
 }
 
 .nav-links li a:hover {
@@ -89,6 +110,58 @@ body {
 
 .nav-links li a:hover::after {
   width: 100%;
+}
+
+/* ====== Hamburger ====== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 26px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animate cross when active */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ====== Mobile Responsive ====== */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    background: rgba(15, 23, 42, 0.95);
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .nav-links.active {
+    max-height: 300px;
+    padding: 20px 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
 }
 
 /* ========== Hero Section ========== */
@@ -412,5 +485,92 @@ h2 {
 
   h2 {
     font-size: 1.6rem;
+  }
+}
+
+/* ========== Extra Responsive Tweaks ========== */
+
+/* Tablet Landscape (<= 992px) */
+@media (max-width: 992px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Tablet Portrait (<= 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-img img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 70px 20px;
+  }
+}
+
+/* Mobile (<= 576px) */
+@media (max-width: 576px) {
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
+  }
+
+  .premium-btn {
+    padding: 10px 25px;
+    font-size: 0.85rem;
+  }
+
+  .hero-img img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .skill-icons {
+    font-size: 2rem;
+    gap: 15px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .contact-info {
+    font-size: 0.95rem;
   }
 }

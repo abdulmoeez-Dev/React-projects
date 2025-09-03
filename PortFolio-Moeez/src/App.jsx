@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import profilepic from "./assets/profilepic.jfif";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,6 +13,8 @@ import {
 import "@fontsource/orbitron/600.css"; // 600 weight wala Orbitron
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     const sections = document.querySelectorAll("section");
     const revealOnScroll = () => {
@@ -59,12 +61,20 @@ function App() {
     <>
       {/* ================= Navbar ================= */}
       <nav className="navbar">
+        {/* Logo */}
         <div className="logo">
-          <span className="symbol">&lt;/&gt;</span> AM |{" "}
-          <span>Frontend Developer</span>
+          <span className="symbol">&lt;/&gt;</span> AM | <span>Developer</span>
         </div>
 
-        <ul className="nav-links">
+        {/* Hamburger Menu Button */}
+        <div className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        {/* Navbar Links */}
+        <ul className={`nav-links ${isOpen ? "active" : ""}`}>
           <li>
             <a href="#hero">Home</a>
           </li>
@@ -94,7 +104,7 @@ function App() {
               <i className="fas fa-crown"></i> Backend in process @ SMIT
             </button>
           </div>
-          <div className="hero-img">  
+          <div className="hero-img">
             <img src={profilepic} alt="Profile" />
           </div>
         </div>
@@ -104,11 +114,28 @@ function App() {
       <section className="about" id="about">
         <h2>About Me</h2>
         <p>
-          I am <strong>Abdul Moeez</strong>, a creative and detail-oriented
-          <span> Frontend Web Developer</span> with expertise in crafting
-          responsive and user-friendly digital experiences. I focus on writing
-          clean code, modern UI design, and building interactive applications
-          that feel premium and intuitive.
+          <div className="intro">
+            I am <strong>Abdul Moeez</strong>, a creative and detail-oriented
+            <span className="highlight"> Frontend Web Developer</span>{" "}
+            passionate about crafting responsive, user-friendly, and visually
+            engaging digital experiences. I focus on writing clean code,
+            building modern UI designs, and creating interactive applications
+            that feel premium and intuitive.
+            <br />
+            <br />
+            Currently, I am pursuing{" "}
+            <span className="highlight">MERN Stack Development</span> at SMIT
+            (Zaitoon Ashraf IT Park). I have successfully completed all the
+            fundamental concepts of <span className="highlight">HTML</span>,
+            <span className="highlight"> CSS</span>, and
+            <span className="highlight"> JavaScript</span>, while
+            <span className="highlight"> React</span> and
+            <span className="highlight"> Backend Development</span> are in
+            progress. Within just one month of learning, I was able to design
+            and develop this portfolio website — a practical showcase of my
+            growth, dedication, and commitment to becoming a modern web
+            developer.
+          </div>
         </p>
         <div className="skills">
           <h3>Skills</h3>
@@ -164,37 +191,27 @@ function App() {
             </a>
           </div>
 
-          {/* Portfolio Website */}
+          {/* Weather Ap */}
+
           <div className="project-card">
-            <h3>⚡ Portfolio Website</h3>
+            <h3>⛅ Weather App</h3>
             <p>
-              A responsive portfolio built with{" "}
-              <strong>React & modern CSS animations</strong>. It showcases my
-              skills, projects, and contact details in an elegant way with
-              smooth scrolling and reveal animations.
+              A <strong>React-based Weather Application</strong> that fetches
+              real-time weather data using the{" "}
+              <strong>OpenWeatherMap API</strong>. Features include dynamic city
+              search, temperature details, and responsive design for all
+              devices.
             </p>
+            <a
+              href="https://weatherappbymoeez.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+            >
+              View Project
+            </a>
           </div>
 
-          {/* Todo App */}
-          <div className="project-card">
-            <h3>📝 Todo App</h3>
-            <p>
-              A feature-rich todo app developed with <strong>React</strong>.
-              Includes functionalities like add, edit, delete, and stores tasks
-              in
-              <strong> Local Storage</strong> for persistence.
-            </p>
-          </div>
-
-          {/* Calculator App */}
-          <div className="project-card">
-            <h3>💻 Calculator App</h3>
-            <p>
-              A functional and stylish calculator using{" "}
-              <strong>JavaScript, HTML, and CSS</strong>. Supports basic
-              arithmetic operations with a clean and responsive UI.
-            </p>
-          </div>
         </div>
       </section>
 
